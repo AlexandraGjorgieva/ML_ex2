@@ -1,0 +1,30 @@
+# config.yaml
+paths:
+  path_auto: "data/auto-mpg.data" 
+
+preprocessing:
+  scaling_method: "StandardScaler"       #standardize numerical features
+  categorical_encoding: "OneHotEncoder"  #encode categorical variables
+
+split:
+  test_size: 0.2  
+  validation_size: 0.1 
+  random_state: 42 #random state for reproducibility
+
+rf_params:
+  n_trees: [10, 50, 100]  # Number of trees in the Random Forest
+  max_features: [None, "sqrt", "log2"]  # Max features considered for splitting
+  max_depth: [5, 10, 20]  # Maximum depth of trees
+  min_samples_split: [2, 10]  # Minimum samples required to split an internal node
+  min_samples_leaf: [1, 4]  # Minimum samples required at a leaf node
+
+metrics:
+  regression_metrics:  # Metrics to evaluate regression models
+    - "MSE"  # Mean Squared Error
+    - "MAE"  # Mean Absolute Error
+    - "R2"  # R-squared score
+
+comparison:
+  baseline_models:  # Models to compare custom Random Forest implementation with
+    - "LinearRegression"
+    - "SklearnRandomForest"
