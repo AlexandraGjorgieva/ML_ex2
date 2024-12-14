@@ -1,6 +1,11 @@
 # config.yaml
 paths:
-  path_auto: "data/auto-mpg.data" 
+  path_auto: "data/auto-mpg.data"
+  bikes_daily: "data/day.csv"
+  bikes_hourly: "data/hour.csv"
+  bikes_train: "data/train.csv"
+  bikes_test: "data/test.csv"
+
 
 preprocessing:
   scaling_method: "StandardScaler"       #standardize numerical features
@@ -11,12 +16,18 @@ split:
   validation_size: 0.1 
   random_state: 42 #random state for reproducibility
 
-rf_params:
+'rf_params:
   n_trees: [10, 50, 100]  # Number of trees
   max_depth: [5, 10, null]  # Maximum depth of trees (null for None)
   min_samples_split: [2, 10]  # Minimum samples required to split a node
-  max_features: [null, "sqrt", "log2"]  # Max features considered for splitting (null for None)
+  max_features: [null, "sqrt", "log2"]  # Max features considered for splitting (null for None)'
   
+rf_params:
+  n_trees: [10]  # Number of trees
+  max_depth: [5]  # Maximum depth of trees (null for None)
+  min_samples_split: [2]  # Minimum samples required to split a node
+  max_features: ["sqrt"]  # Max features considered for splitting (null for None)
+
 metrics:
   regression_metrics:  # Metrics to evaluate regression models
     - "MSE"  # Mean Squared Error
