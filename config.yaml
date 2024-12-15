@@ -9,16 +9,16 @@ preprocessing:
   categorical_encoding: "OneHotEncoder"  #encode categorical variables
 
 split:
-  test_size: 0.2  
-  validation_size: 0.1 
+  test_size: 0.2
+  validation_size: 0.1
   random_state: 42 #random state for reproducibility
-  
+
 rf_params:
   n_trees: [10, 50, 100]  # Number of trees
-  max_depth: [5, 10, null]  # Maximum depth of trees (null for None)
+  max_depth: [5, 10, null] # Maximum depth of trees (null for None)
   min_samples_split: [2, 10]  # Minimum samples required to split a node
   max_features: [null, "sqrt", "log2"]  # Max features considered for splitting (null for None)'
-  
+
 
 metrics:
   regression_metrics:  # Metrics to evaluate regression models
